@@ -181,7 +181,7 @@ function setRunningState(running: boolean) {
 // 5. GESTION DES ÉVÉNEMENTS
 // ==========================================
 
-fileInput.addEventListener('change', (e) => {
+fileInput.addEventListener('change', () => {
     const file = fileInput.files?.[0];
     if (!file) return;
     setRunningState(false);
