@@ -1,8 +1,29 @@
 {
-  "name": "projet-genetique",
-  "private": true,
-  "version": "0.0.0",
+  "name": "mona-climber",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "description": "Algorithme génétique interactif qui recrée des images en utilisant 150 triangles - Projet éducatif inspiré par Roger Alsing",
+  "author": {
+    "name": "GuiFraV",
+    "url": "https://github.com/GuiFraV"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuiFraV/Mona-Climber.git"
+  },
+  "homepage": "https://github.com/GuiFraV/Mona-Climber#readme",
+  "keywords": [
+    "genetic-algorithm",
+    "evolutionary-art",
+    "canvas",
+    "typescript",
+    "image-reconstruction",
+    "triangles",
+    "interactive",
+    "educational"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

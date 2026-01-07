@@ -1,4 +1,13 @@
 // ==========================================
+// MONA CLIMBER - Algorithme Génétique
+// ==========================================
+// Inspiré par:
+// - Roger Alsing (2008): https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/
+// - Peter Braden: https://peterbraden.github.io/genetic-lisa/
+// Auteur: GuiFraV (2024)
+// ==========================================
+
+// ==========================================
 // 1. TYPES & CONFIGURATION
 // ==========================================
 
@@ -207,13 +216,31 @@ btnPause.addEventListener('click', () => {
 });
 
 btnSave.addEventListener('click', () => {
+    mainCtx.save();
+    
+    mainCtx.font = 'bold 14px Arial';
+    mainCtx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    mainCtx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+    mainCtx.lineWidth = 3;
+    
+    const watermarkText = 'Mona Climber - GuiFraV';
+    const textWidth = mainCtx.measureText(watermarkText).width;
+    const x = mainCanvas.width - textWidth - 15;
+    const y = mainCanvas.height - 15;
+    
+    mainCtx.strokeText(watermarkText, x, y);
+    mainCtx.fillText(watermarkText, x, y);
+    
+    mainCtx.restore();
+    
     const link = document.createElement('a');
-    link.download = `art_genetique_${generation}.png`;
+    link.download = `mona-climber_gen${generation}_by_GuiFraV.png`;
     link.href = mainCanvas.toDataURL();
     link.click();
+    
+    renderToScreen();
 });
 
-// COACH MODALE
 btnCoach.addEventListener('click', () => {
     if (!targetImageData) return;
     setRunningState(false);
