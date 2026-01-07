@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/src/style.css"> 
+    <title>Mona Climber</title>
+</head>
+<body>
+
+    <h1>Mona Climber</h1>
+    
+    <div class="controls">
+        <input type="file" id="imageLoader" accept="image/*">
+        <button id="btnPause" disabled>Pause</button>
+        <button id="btnCoach" disabled>Comprendre le calcul</button>
+        <button id="btnSave" disabled>Sauvegarder</button>
+    </div>
+
+    <div class="stats" id="statsArea">
+        Génération : <span id="genCount" style="color: #4caf50">0</span> | 
+        Erreur : <span id="scoreVal" style="color: #ff9800">Infinity</span>
+        <div class="loading"></div>
+    </div>
+
+    <div class="main-layout">
+        <div class="canvas-area">
+            <div class="canvas-box">
+                <h3>Objectif</h3>
+                <img id="targetImage" width="400" height="400" alt="Cible" />
+            </div>
+            <div class="canvas-box">
+                <h3>IA (150 Triangles)</h3>
+                <canvas id="mainCanvas" width="400" height="400"></canvas>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h2>Comment ça marche ?</h2>
+            
+            <div id="tutorialContainer">
+                <div class="step active" data-step="0">
+                    <h3>1. L'ADN</h3>
+                    <p class="typewriter-text">L'IA possède une liste de 150 triangles. Chaque triangle a une position (X,Y) et une couleur (R,G,B) définie au hasard au début. C'est le chaos total !</p>
+                </div>
+
+                <div class="step" data-step="1">
+                    <h3>2. La Mutation</h3>
+                    <p class="typewriter-text">60 fois par seconde, l'IA copie son dessin actuel et modifie légèrement un détail : elle déplace un point ou change une teinte de couleur.</p>
+                </div>
+
+                <div class="step" data-step="2">
+                    <h3>3. La Sélection Naturelle</h3>
+                    <p class="typewriter-text">On compare le nouveau dessin avec l'objectif. Si l'erreur mathématique diminue, on garde la mutation. Sinon, on la jette et on recommence.</p>
+                </div>
+
+                <div class="step" data-step="3">
+                    <h3>4. C'est fini !</h3>
+                    <p class="typewriter-text">C'est la même logique que l'évolution biologique de Darwin, mais accélérée des millions de fois par ton processeur pour créer de l'art.</p>
+                </div>
+            </div>
+
+            <div class="nav-controls">
+                <button id="btnPrevStep" disabled>Précédent</button>
+                <button id="btnNextStep">Suivant</button>
+            </div>
+        </aside>
+
+    </div>
+
+    <div id="coachModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Inspection du Pixel</h2>
+            <p>Zoom sur le pixel aux coordonnées <strong id="pixelCoord" style="color: #007acc">X:0, Y:0</strong>.</p>
+            
+            <div class="comparison-view">
+                <div class="color-box">
+                    <div id="targetColorSample" class="swatch"></div>
+                    <span>La Cible</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="color-box">
+                    <div id="iaColorSample" class="swatch"></div>
+                    <span>L'IA</span>
+                </div>
+            </div>
+
+            <div class="math-explanation">
+                <p style="margin-top:0; color: #888; font-size: 0.9em;">// Formule de la distance au carré</p>
+                <div class="formula">
+                    (<span class="red">R1</span>-<span class="red">R2</span>)² + 
+                    (<span class="green">G1</span>-<span class="green">G2</span>)² + 
+                    (<span class="blue">B1</span>-<span class="blue">B2</span>)²
+                </div>
+                
+                <p style="color: #888; font-size: 0.9em;">// Avec les valeurs réelles :</p>
+                <div class="calculation">
+                    (<span id="mathR" class="red">0-0</span>)² + 
+                    (<span id="mathG" class="green">0-0</span>)² + 
+                    (<span id="mathB" class="blue">0-0</span>)²
+                </div>
+
+                <h3 class="result-line">Erreur du pixel = <span id="pixelScore" style="color: #ff4757">0</span></h3>
+            </div>
+
+            <button id="closeCoach">J'ai compris, reprends !</button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
