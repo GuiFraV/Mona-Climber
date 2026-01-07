@@ -4,7 +4,7 @@
 // Inspiré par:
 // - Roger Alsing (2008): https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/
 // - Peter Braden: https://peterbraden.github.io/genetic-lisa/
-// Auteur: GuiFraV (2024)
+// Auteur: GuiFraV (2026)
 // ==========================================
 
 // ==========================================

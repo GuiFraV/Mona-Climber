@@ -66,7 +66,7 @@ This project is inspired by pioneering works in generative art:
 
 ## 📄 License
 
-MIT © 2024 GuiFraV - See the [LICENSE](LICENSE) file for details.
+MIT © 2026 GuiFraV - See the [LICENSE](LICENSE) file for details.
 
 ---
 
