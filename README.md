@@ -6,7 +6,7 @@ A genetic algorithm that recreates images using 150 triangles.
 
 ![Mona Climber Demo](./screenshots/demo.png)
 
-*The algorithm recreating your image with 150 triangles*
+*The algorithm recreating Mona Lisa with 150 triangles*
 
 ## 📖 Description
 
